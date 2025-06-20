@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom animation for title text */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-slide-in {
+      animation: slideIn 1s ease-out forwards;
+    }
+    /* Custom animation for subtitle with slight delay */
+    @keyframes slideInDelayed {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-slide-in-delayed {
+      animation: slideInDelayed 1s ease-out forwards;
+      animation-delay: 0.3s;
+      opacity: 0; /* Ensures it starts invisible until animation */
+    }
+    /* Custom underline for name */
+    .custom-underline {
+      position: relative;
+    }
+    .custom-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #00ffff, #00b7eb);
+    }
+    /* Gradient text for name */
+    .gradient-name {
+      background: linear-gradient(to right, #f472b6, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    /* Icon styles */
+    .tech-icon {
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 transition-colors duration-300">
+  <!-- Navigation Bar -->
+  <nav id="navbar" class="fixed top-0 w-full bg-teal-600 shadow-md z-10 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-xl">
+            <span class="font-bold gradient-name">Anupama Jayasooriya</span>
+            <span class="text-white ml-2">Full Stack Developer</span>
+          </span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="#home" class="text-white hover:text-gray-200">Home</a>
+          <a href="#about" class="text-white hover:text-gray-200">About</a>
+          <a href="#projects" class="text-white hover:text-gray-200">Projects</a>
+          <a href="#skills" class="text-white hover:text-gray-200">Skills</a>
+          <a href="#contact" class="text-white hover:text-gray-200">Contact</a>
+          <button id="theme-toggle" class="p-2 rounded-full bg-gray-200">🌙</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!-- Home Section -->
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-800 to-purple-900 text-white">
+
+  <!-- ✅ Embedded CSS only for this section -->
+  <style>
+    @keyframes animatedBorder {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .animated-border-wrapper {
+      background: linear-gradient(270deg, #06b6d4, #8b5cf6, #ec4899);
+      background-size: 600% 600%;
+      animation: animatedBorder 6s ease infinite;
+      padding: 6px;
+      border-radius: 9999px; /* fully rounded */
+    }
+
+    .animated-border-inner {
+      border-radius: 9999px;
+      border: 6px solid white;
+      background-color: white;
+    }
+
+    .dark .animated-border-inner {
+      border-color: #374151; /* dark:border-gray-700 */
+      background-color: #1f2937;
+    }
+  </style>
+
+  <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-10">
+
+    <!-- Left: Text & Buttons -->
+    <div class="sm:w-1/2 text-center sm:text-left">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-6 custom-underline animate-slide-in hover:text-transparent overflow-hidden">
+        <span class="text-white">Hi, I'm </span>
+        <span class="gradient-name whitespace-nowrap">Anupama Jayasooriya</span>
+        <span> 👋</span>
+      </h2>
+      <h3 class="text-3xl sm:text-4xl font-bold text-cyan-300 mb-4 animate-slide-in-delayed hover:text-cyan-200 transition duration-300">
+        Full Stack Developer
+      </h3>
+      <p class="text-lg sm:text-xl text-white-400 mb-6 max-w-md">
+        I design and develop end-to-end web solutions, seamlessly integrating front-end innovation with back-end reliability to build user-centric applications that solve real world problems.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex space-x-4 mt-4">
+        <a href="#contact" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition">Let's Collaborate</a>
+        <a href="#projects" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">See My Work</a>
+      </div>
+    </div>
+
+    <!-- Right: Image & Social Icons -->
+    <div class="sm:w-1/2 flex flex-col items-center justify-center space-y-6">
+      
+      <!-- ✅ Profile Picture with Animated Gradient Border -->
+      <div class="animated-border-wrapper shadow-2xl transition-transform duration-300 hover:scale-105">
+        <div class="animated-border-inner">
+          <img src="images/Anupama_Jayasooriya.png" alt="Anupama's Photo"
+               class="w-72 h-72 object-cover rounded-full">
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="flex space-x-4 mt-4">
+        <a href="https://www.linkedin.com/in/tharushi-jayasooriya-3919b626b/" target="_blank" title="LinkedIn"
+           class="hover:scale-110 transition-transform duration-300">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+               alt="LinkedIn" class="w-8 h-8" />
+        </a>
+        <a href="https://github.com/TharushiJayasooriya" target="_blank" title="GitHub"
+           class="hover:scale-110 transition-transform duration-300">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+               alt="GitHub" class="w-8 h-8 invert dark:invert-0" />
+        </a>
+        <a href="mailto:tharushjay23@gmail.com" title="Gmail"
+           class="hover:scale-110 transition-transform duration-300">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+               alt="Gmail" class="w-8 h-8" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="min-h-screen py-8 bg-gray-200 dark:text-white transition-colors">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-start gap-10">
+
+    <!-- Left: Photo -->
+    <div class="lg:w-1/3 flex justify-center items-start pt-10" data-aos="fade-right" data-aos-duration="1200">
+      <img src="images/IMG_8104.jpg" alt="Anupama Jayasooriya" class="w-65 h-auto rounded-2xl shadow-xl object-cover">
+    </div>
+
+    <!-- Right: Content -->
+    <div class="lg:w-2/3" data-aos="fade-left" data-aos-duration="1200">
+
+      <!-- Gradient Title -->
+      <h2 
+  class="text-4xl font-bold  mb-7" 
+  data-aos="fade-up" 
+  data-aos-duration="1000"
+>
+  <span class="inline-block bg-gradient-to-r from-blue-800 via-indigo-600 to-blue-800 bg-clip-text text-transparent dark:bg-none dark:text-white">
+  About Me
+</span>
+
+</h2>
+
+      <!-- Mini Introduction -->
+      <p class="text-m mb-8 max-w-xxl">
+      <br> Hey there! </br>
+      I'm an aspiring full-stack developer with 2 years of academic experience through real-world projects. 
+      Currently pursuing a BEng(Hons) in Software Engineering at Informatics Institute of Technology, with a strong focus on backend engineering and web application development.
+      Passionate about building scalable, user-centric solutions and exploring challenges in system design, cloud integration, and emerging technologies.
+      </p>
+
+      <!-- Education and Certification Title -->
+      <h3 class="text-2xl font-semibold mb-6 flex justify-center items-center">
+        Education and Certification <span class="ml-2 text-gray-500 dark:text-gray-400">🎓</span>
+      </h3>
+
+      <!-- Education Grid -->
+        <!-- Boxes -->
+       <!-- Education and Certification Section -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Box 1 - Top Gradient -->
+    <div class="bg-gradient-to-r from-blue-200 to-purple-200 text-gray-600 p-6 rounded-xl shadow-md hover:scale-105 transform transition-all duration-300">
+      <h3 class="text-xl font-semibold">BEng(Hons) in Software Engineering</h3>
+      <p class="mt-1">Informatics Institute of Technology<br>2023–2027</p>
+    </div>
+
+    <!-- Box 2 - Top Gradient -->
+    <div class="bg-gradient-to-r from-blue-200 to-purple-200 text-gray-600 p-6 rounded-xl shadow-md hover:scale-105 transform transition-all duration-300">
+      <h3 class="text-xl font-semibold">Diploma in English Language</h3>
+      <br>
+      <p class="mt-1">British Council,&nbsp Kandy-SriLanka<br>2023</p>
+    </br>
+    </div>
+
+    <!-- Box 3 - Bottom Gradient -->
+    <div class="bg-gradient-to-r from-blue-200 to-purple-200 text-gray-600 p-6 rounded-xl shadow-md hover:scale-105 transform transition-all duration-300">
+      <h3 class="text-xl font-semibold">Certification in Java Programming</h3>
+      <p class="mt-1">Distinction Pass</p>
+      <p class="mt-1">Informatics Institute of Technology<br>2024</p>
+    </div>
+
+    <!-- Box 4 - Bottom Gradient -->
+    <div class="bg-gradient-to-r from-blue-200 to-purple-200 text-gray-600 p-6 rounded-xl shadow-md hover:scale-105 transform transition-all duration-300">
+      <h3 class="text-xl font-semibold">Certification in AI & Machine Learning </h3>
+      <p class="mt-1">SriLanka Institute of Information Technology(SLIIT)<br>2025</p>
+    </div>
+  </div>
+
+  <!-- Box 5 - Centered Bottom Box -->
+  <div class="mt-6 flex justify-center">
+    <div class="bg-gradient-to-r from-blue-200 to-purple-200 text-gray-600 p-6 rounded-xl shadow-md hover:scale-105 transform transition-all duration-300 w-full md:w-1/2">
+      <h3 class="text-xl font-bold text-center">Certification in Hult Prize Global Competition</h3>
+      <p class="mt-1">Informatics Institute of Technology <br>2025</p>
+    </div>
+  </div>
+
+     <!-- Download CV Button (with LinkedIn-style background animation) -->
+<div class="md:col-span-3 flex justify-center mt-8 mb-16" data-aos="zoom-in" data-aos-duration="1000">
+  <a href="images/Anupama_Jayasooriya CV Resume.pdf.pdf" download
+      class="flex items-center gap-2 bg-gray-900 hover:bg-black text-white font-medium px-5 py-2 rounded-full shadow-md transition duration-500 ease-in-out hover:scale-105">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M5 20h14v-2H5v2zm7-18c-1.1 0-2 .9-2 2v10.59L8.71 13.3a.996.996 0 10-1.41 1.41l4 4c.39.39 1.02.39 1.41 0l4-4a.996.996 0 10-1.41-1.41L13 14.59V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+    Download My CV
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Optional Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white transition-colors">
+
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen py-16 transition-colors">
+    <div class="max-w-7xl mx-auto px-4">
+
+      <!-- Gradient Title -->
+<h2 
+  class="text-4xl font-bold text-center mb-6" 
+  data-aos="fade-up" 
+  data-aos-duration="1000"
+>
+  <span class="inline-block bg-gradient-to-r from-blue-800 via-indigo-600 to-blue-800 bg-clip-text text-transparent dark:bg-none dark:text-white">
+    My Projects
+  </span>
+</h2>
+
+
+      <!-- Project Grid -->
+      <div class="flex flex-wrap justify-center gap-8">
+      
+       <!-- 1st Project Box -->
+<div class="relative bg-gradient-to-br from-gray-100 to-gray-300 text-black p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:scale-105 transform transition duration-300 ease-in-out w-80"
+     data-aos="fade-up" data-aos-delay="100">
+  
+  <span class="absolute top-3 right-3 bg-white bg-opacity-70 text-xs px-3 py-1 rounded-full shadow">Web App</span>
+
+  <!-- Image -->
+  <img src="images/pexels-andres-ayrton-6551079.jpg" alt="Wellzone Lanka" class="rounded-xl mb-4 w-full h-44 object-cover">
+
+  <!-- Title & Description -->
+  <h3 class="text-lg font-semibold">Wellzone Lanka</h3>
+  <br>
+  <p class="text-sm mt-2 mb-2">Health & Fitness platform with ML-based posture correction.</p>
+  </br>
+
+  <!-- Tech Stack (moved below description) -->
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="bg-purple-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Next.js</span>
+    <span class="bg-green-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Tailwind CSS</span>
+    <span class="bg-blue-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Python Flask</span>
+    <span class="bg-purple-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Open CV</span>
+    <span class="bg-green-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Media Pipe</span>
+    <span class="bg-blue-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">MongoDB</span>
+  </div>
+
+  <!-- Key Features -->
+  <ul class="text-sm space-y-1 mb-4">
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span> ML-based exercise posture correction.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Chabot service for diagnosing physical illnesses.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span> Doctor/trainer live consultation.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span> Exercise library.</li>
+  </ul>
+
+  <!-- GitHub Button -->
+  <a href="https://github.com/TharushiJayasooriya/WellzoneLanka" target="_blank" class="inline-flex items-center text-sm font-medium text-white bg-gray-900 hover:bg-black px-4 py-2 rounded-full transition">
+    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 .5C5.8.5.9 5.4.9 11.6c0 4.9 3.2 9.1 7.7 10.6.6.1.8-.3.8-.6v-2c-3.1.7-3.8-1.5-3.8-1.5-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.8 2.1 2.8 1.5.1-.8.4-1.3.7-1.6-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11.3 11.3 0 0 1 5.8 0C17 4 18 4.3 18 4.3c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.9 1.2 3.2 0 4.6-2.6 5.5-5.1 5.8.4.4.8 1 .8 2v3c0 .3.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.6C23.1 5.4 18.2.5 12 .5z"/>
+    </svg>
+    View Code
+  </a>
+</div>
+
+
+<!--2nd Project Box -->
+ <div class="relative bg-gradient-to-br from-gray-100 to-gray-300 text-black p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:scale-105 transform transition duration-300 ease-in-out w-80"
+             data-aos="fade-up" data-aos-delay="200">
+  <span class="absolute top-3 right-3 bg-white bg-opacity-70 text-xs px-3 py-1 rounded-full shadow">Web App</span>
+
+  <!-- Image -->
+  <img src="images/pexels-cax0000-1860618.jpg" alt="Wellzone Lanka" class="rounded-xl mb-4 w-full h-44 object-cover">
+
+  <!-- Title & Description -->
+  <h3 class="text-lg font-semibold">Real-Time ticket management system</h3>
+  <br>
+  <p class="text-sm mt-2 mb-2"> A real-time event tickets management system.</p>
+</br>
+
+  <!-- Tech Stack (moved below description) -->
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="bg-purple-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">React</span>
+    <span class="bg-green-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">SpringBoot</span>
+    <span class="bg-blue-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold"> MySQL</span>
+    <span class="bg-purple-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">OOP Principles</span>
+  </div>
+
+  <!-- Key Features -->
+  <ul class="text-sm space-y-1 mb-4">
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Multi-thread ticket management using the producer-consumer pattern.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>MySQL database ensuring robust data persistence.</li>
+     <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Efficient handling of system synchronization.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Real-time data processing.</li>
+  </ul>
+
+  <!-- GitHub Button -->
+  <a href="https://github.com/TharushiJayasooriya/Real-time-Ticketing-System" target="_blank" class="inline-flex items-center text-sm font-medium text-white bg-gray-900 hover:bg-black px-4 py-2 rounded-full transition">
+    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 .5C5.8.5.9 5.4.9 11.6c0 4.9 3.2 9.1 7.7 10.6.6.1.8-.3.8-.6v-2c-3.1.7-3.8-1.5-3.8-1.5-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.8 2.1 2.8 1.5.1-.8.4-1.3.7-1.6-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11.3 11.3 0 0 1 5.8 0C17 4 18 4.3 18 4.3c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.9 1.2 3.2 0 4.6-2.6 5.5-5.1 5.8.4.4.8 1 .8 2v3c0 .3.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.6C23.1 5.4 18.2.5 12 .5z"/>
+    </svg>
+    View Code
+  </a>
+</div>
+
+       <!-- 3rd Project Box -->
+ <div class="relative bg-gradient-to-br from-gray-100 to-gray-300 text-black p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:scale-105 transform transition duration-300 ease-in-out w-80"
+             data-aos="fade-up" data-aos-delay="300">
+  
+  <span class="absolute top-3 right-3 bg-white bg-opacity-70 text-xs px-3 py-1 rounded-full shadow">MVP System</span>
+
+  <!-- Image -->
+  <img src="images/pexels-tima-miroshnichenko-7991158.jpg" alt="Wellzone Lanka" class="rounded-xl mb-4 w-full h-44 object-cover">
+
+  <!-- Title & Description -->
+  <h3 class="text-lg font-semibold">Cinema management system</h3>
+  <br>
+  <p class="text-sm mt-2 mb-2">Cinema seats reservation system.</p>
+</br>
+
+  <!-- Tech Stack (moved below description) -->
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="bg-purple-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Core Java</span>
+    <span class="bg-green-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">2D Arrays</span>
+    <span class="bg-blue-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Bubble sort</span>
+  </div>
+
+  <!-- Key Features -->
+  <ul class="text-sm space-y-1 mb-4">
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Ticket booking, cancellation, and seating layout display using core Java concepts.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>2D arrays, and bubble sort for ticket management.</li>
+    
+  </ul>
+
+  <!-- GitHub Button -->
+  <a href="https://github.com/TharushiJayasooriya/Cinema-Management-System" target="_blank" class="inline-flex items-center text-sm font-medium text-white bg-gray-900 hover:bg-black px-4 py-2 rounded-full transition">
+    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 .5C5.8.5.9 5.4.9 11.6c0 4.9 3.2 9.1 7.7 10.6.6.1.8-.3.8-.6v-2c-3.1.7-3.8-1.5-3.8-1.5-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.8 2.1 2.8 1.5.1-.8.4-1.3.7-1.6-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11.3 11.3 0 0 1 5.8 0C17 4 18 4.3 18 4.3c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.9 1.2 3.2 0 4.6-2.6 5.5-5.1 5.8.4.4.8 1 .8 2v3c0 .3.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.6C23.1 5.4 18.2.5 12 .5z"/>
+    </svg>
+    View Code
+  </a>
+</div>
+
+       <!-- 4th Project Box -->
+<div class="relative bg-gradient-to-br from-gray-100 to-gray-300 text-black p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:scale-105 transform transition duration-300 ease-in-out w-80"
+             data-aos="fade-up" data-aos-delay="400">
+  <span class="absolute top-3 right-3 bg-white bg-opacity-70 text-xs px-3 py-1 rounded-full shadow">Ongoing</span>
+
+  <!-- Image -->
+  <img src="images/pexels-karolina-grabowska-7680630.jpg" alt="Wellzone Lanka" class="rounded-xl mb-4 w-full h-44 object-cover">
+
+  <!-- Title & Description -->
+  <h3 class="text-lg font-semibold">Finance Guard</h3>
+  <br>
+  <p class="text-sm mt-2 mb-2">Personal finance tracker.</p>
+</br>
+
+  <!-- Tech Stack (moved below description) -->
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="bg-purple-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">React</span>
+    <span class="bg-green-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">SpringBoot</span>
+    <span class="bg-blue-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">MySQL</span>
+  </div>
+
+  <!-- Key Features -->
+  <ul class="text-sm space-y-1 mb-4">
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Income and expenses tracking.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>User Authentication and Authorization. </li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Dashboard overview.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Category management.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Data persistence.</li>
+  </ul>
+
+ 
+</div>
+
+         <!-- 5th Project Box -->
+ <div class="relative bg-gradient-to-br from-gray-100 to-gray-300 text-black p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:scale-105 transform transition duration-300 ease-in-out w-80"
+             data-aos="fade-up" data-aos-delay="500">
+  
+  <span class="absolute top-3 right-3 bg-white bg-opacity-70 text-xs px-3 py-1 rounded-full shadow">Ongoing</span>
+
+  <!-- Image -->
+  <img src="images/amelia-cui-P2qynBU8j4Y-unsplash.jpg" alt="Wellzone Lanka" class="rounded-xl mb-4 w-full h-44 object-cover">
+
+  <!-- Title & Description -->
+  <h3 class="text-lg font-semibold">Blossom Bay</h3>
+  <br>
+  <p class="text-sm mt-2 mb-2">Online flower vendor marketplace.</p>
+</br>
+
+  <!-- Tech Stack (moved below description) -->
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="bg-purple-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">React</span>
+    <span class="bg-green-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">Express.js</span>
+    <span class="bg-blue-300 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">MongoDB</span>
+  </div>
+
+  <!-- Key Features -->
+  <ul class="text-sm space-y-1 mb-4">
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Role based access control.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Product management (vendor side).</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Order management (Customer side).</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Real time order tracking. </li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>User Authentication.</li>
+    <li class="flex items-start gap-2"><span class="text-green-600">✔</span>Search and filter.</li>
+  </ul>
+
+ 
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+</html>
+
+<!-- Skills Section -->
+<section id="skills" class="min-h-screen py-16 transition-colors bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 
+  class="text-4xl font-bold text-center mb-14" 
+  data-aos="fade-up" 
+  data-aos-duration="1000"
+>
+  <span class="inline-block bg-gradient-to-r from-blue-800 via-indigo-600 to-blue-800 bg-clip-text text-transparent dark:bg-none dark:text-white">
+    My Skills
+  </span>
+</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!--  Frontend  -->
+<div class="bg-white border-4 border-purple-200 rounded-xl p-6 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+  <h3 class="text-lg font-semibold text-black-300 mb-8 text-center">Frontend</h3>
+  <div class="grid grid-cols-2 gap-2">
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">Next.js</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">PHP</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">React</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">Tailwind CSS</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">HTML</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">CSS</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">JavaScript</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">TypeScript</span>
+  </div>
+</div>
+
+
+     <!-- Digital Skills -->
+<div class="bg-white border-4 border-green-200 rounded-xl p-6 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+  <h3 class="text-lg font-semibold text-black-300 mb-8 text-center">Backend</h3>
+  <div class="grid grid-cols-2 gap-2">
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">Java</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">Java FX</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">OOP</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">SpringBoot</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">Python</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">Node.js</span>
+
+  </div>
+</div>
+
+
+
+      <!-- Libraries -->
+      <div class="bg-white border-4 border-blue-200 rounded-xl p-6 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
+        
+          <h3 class="text-lg font-semibold text-black-300 mb-8 text-center">Libraries</h3>
+        
+        <div class="grid grid-cols-2 gap-2">
+          <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Flask</span>
+          <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Open CV</span>
+          <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Media Pipe</span>
+          <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">PyTorch</span>
+        </div>
+      </div>
+     
+
+     <!-- Databases -->
+<div class="bg-white border-4 border-purple-200 rounded-xl p-8 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-in-out mt-10" data-aos="fade-up" data-aos-delay="300">
+  <h3 class="text-lg font-semibold text-black-300 mb-8 text-center">Databases</h3>
+  <div class="grid grid-cols-1 gap-2">
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">MySQL</span>
+    <span class="px-4 py-1 rounded-full bg-purple-100 text-purple-900 text-sm font-medium border border-purple-200 text-center">MongoDB</span>
+  </div>
+</div>
+
+ <!--Tools-->
+<div class="bg-white border-4 border-green-200 rounded-xl p-8 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-in-out mt-10" data-aos="fade-up" data-aos-delay="300">
+  <h3 class="text-lg font-semibold text-black-300 mb-8 text-center">Tools</h3>
+  <div class="grid grid-cols-2 gap-2">
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">Git & GitHub</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-green-200 text-center">VsCode</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-purple-200 text-center">IntelliJ IDEA</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-purple-200 text-center">Postman</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-purple-200 text-center">Figma</span>
+    <span class="px-4 py-1 rounded-full bg-green-100 text-green-900 text-sm font-medium border border-purple-200 text-center">canva</span>
+  </div>
+</div>
+
+
+<!-- Soft Skills -->
+<div class="bg-white border-4 border-blue-200 rounded-xl p-6 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-in-out  mt-10" data-aos="fade-up" data-aos-delay="100">
+  <h3 class="text-xl font-semibold text-black-300 mb-8 text-center">Soft Skills</h3>
+  <div class="grid grid-cols-2 gap-2">
+    <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Adaptability</span>
+    <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Fast Learner</span>
+    <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Teamwork</span>
+    <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue200 text-center">Communication</span>
+    <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Leadership</span>
+    <span class="px-4 py-1 rounded-full bg-blue-100 text-blue-900 text-sm font-medium border border-blue-200 text-center">Problem Solver</span>
+  </div>
+</div>
+
+     <!-- LinkedIn Button -->
+<div class="md:col-span-3 flex justify-center mt-12 mb-4" data-aos="zoom-in" data-aos-duration="1000">
+  <a href="https://www.linkedin.com/in/tharushi-jayasooriya-3919b626b/" target="_blank" rel="noopener noreferrer"
+     class="flex items-center gap-2 bg-gray-900 hover:bg-black text-white font-medium px-5 py-2 rounded-full shadow-md transition duration-500 ease-in-out hover:scale-105">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19 0h-14c-2.762 0-5 2.238-5 5v14c0 2.762 2.238 5 5 5h14c2.761 0 5-2.238 5-5v-14c0-2.762-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.379-1.121-2.5-2.5-2.5s-2.5 1.121-2.5 2.5v5.5h-3v-10h3v1.528c.768-.915 2.008-1.528 3.5-1.528 2.481 0 4.5 2.019 4.5 4.5v5.5z"/>
+    </svg>
+    Visit LinkedIn
+  </a>
+</div>
+
+
+
+
+<!-- Add this class to the container of skill boxes -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+  <!-- Your Skill Boxes Here -->
+</div>
+
+
+      
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact Section Starts -->
+
+<section id="contact" class="relative min-h-screen py-16 bg-gray-100 dark:bg-gray-900 transition-colors">
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- ✅ Floating Success Message -->
+    <div id="successMessage" class="hidden absolute top-6 right-6 z-50 bg-green-100 text-green-800 px-4 py-2 rounded-md shadow-lg text-sm font-semibold">
+      Email sent successfully!
+    </div>
+
+    <h2 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white" data-aos="fade-up" data-aos-duration="1000">
+      <span class="inline-block bg-gradient-to-r from-blue-800 via-indigo-600 to-blue-800 bg-clip-text text-transparent dark:bg-none dark:text-white">
+        Contact Me
+      </span>
+    </h2>
+
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+      <form action="https://formspree.io/f/mzzgvnpv" method="POST" class="space-y-6" id="contactForm" onsubmit="return showSuccessMessage()">
+        <input type="text" name="name" placeholder="Your Name"
+               class="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-gray-500 outline-none" required>
+        
+        <input type="email" name="email" placeholder="Your Email"
+               class="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-gray-500 outline-none" required>
+        
+        <textarea name="message" placeholder="Your Message"
+                  class="w-full p-3 rounded-lg h-32 bg-gray-100 dark:bg-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-gray-500 outline-none" required></textarea>
+        
+        <button type="submit"
+          class="w-full flex items-center justify-center gap-2 bg-sky-300 hover:bg-sky-400 text-gray-900 font-semibold py-3 px-6 rounded-full shadow-md transition-transform duration-300 hover:scale-105">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M2.01 21l20.99-9L2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+          Send Me an Email
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Success Message -->
+      <p id="successMessage" class="hidden mt-6 text-center text-green-600 dark:text-green-400">
+        Email sent successfully!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript to handle the response -->
+<script>
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.reset();
+      successMessage.classList.remove("hidden");
+    } else {
+      alert("Oops! Something went wrong.");
+    }
+  });
+</script>
+
+<script>
+  function showSuccessMessage() {
+    const message = document.getElementById("successMessage");
+    message.classList.remove("hidden");
+    
+    // Hide after 4 seconds
+    setTimeout(() => {
+      message.classList.add("hidden");
+    }, 4000);
+
+    return true; // Allow form to submit
+  }
+</script>
+
+
+
+
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-800 text-white text-center">
+    <p>© 2025 My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Smooth Scrolling, Theme Toggle, and Scroll Color Change -->
+  <script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+   const toggleButton = document.getElementById('theme-toggle');
+const navbar = document.getElementById('navbar');
+
+// Include all your section IDs here
+const sectionIds = ['home', 'about', 'projects', 'skills', 'contact'];
+
+toggleButton.addEventListener('click', () => {
+  const isDark = document.body.classList.toggle('dark');
+  toggleButton.textContent = isDark ? 'dark' : 'light';
+
+  // Toggle body and navbar
+  if (isDark) {
+    document.body.classList.add('bg-gray-900', 'text-white');
+    document.body.classList.remove('bg-gray-100', 'text-gray-900');
+    navbar.classList.add('bg-teal-700');
+    navbar.classList.remove('bg-teal-500');
+  } else {
+    document.body.classList.add('bg-gray-100', 'text-gray-900');
+    document.body.classList.remove('bg-gray-900', 'text-white');
+    navbar.classList.add('bg-teal-500');
+    navbar.classList.remove('bg-teal-700');
+  }
+
+  // Loop through sections and alternate background colors for separation
+  sectionIds.forEach((id, index) => {
+    const section = document.getElementById(id);
+    if (section) {
+      if (isDark) {
+        section.classList.remove('bg-gray-100', 'bg-white');
+        section.classList.add(index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-900');
+      } else {
+        section.classList.remove('bg-gray-800', 'bg-gray-900');
+        section.classList.add(index % 2 === 0 ? 'bg-gray-100' : 'bg-white');
+      }
+    }
+  });
+});
+
+
+
+    // Change Navbar Color on Scroll
+    window.addEventListener('scroll', () => {
+      const isDark = document.body.classList.contains('dark');
+      if (window.scrollY > 50) {
+        navbar.classList.add(isDark ? 'bg-indigo-700' : 'bg-indigo-800');
+        navbar.classList.remove(isDark ? 'navbar-gradient-dark' : 'navbar-gradient');
+      } else {
+        navbar.classList.add(isDark ? 'navbar-gradient-dark' : 'navbar-gradient');
+        navbar.classList.remove(isDark ? 'bg-indigo-700' : 'bg-indigo-800');
+      }
+    });
+  </script>
+</body>
+</html>
