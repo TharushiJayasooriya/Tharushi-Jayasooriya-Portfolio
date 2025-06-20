@@ -1,8 +1,6 @@
 # 🌟 Anupama Jayasooriya - Personal Portfolio
 
-Welcome to my personal developer portfolio website! This site showcases my skills, projects, and contact information in a modern, responsive layout — built using **HTML** and **Tailwind CSS** with an animated glowing photo frame.
-
-![Screenshot](images/Anupama_Jayasooriya.png)
+Welcome to my personal developer portfolio website! This site showcases my skills, projects, and contact information in a modern, responsive layout — built using **HTML** and **Tailwind CSS** with an animated glowing photo frame
 
 
 ## ✨ Features
